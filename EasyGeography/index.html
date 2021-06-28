@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EasyGeography</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+  <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script>
+  <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet' />
+
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="container container__header">
+      <a href="index.html" class="header__logo">
+        <img src="img/logo.svg" alt="EasyGeography" class="header__img">
+      </a>
+      <button href="#" class="header__menu">
+        <svg class="header__burger" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
+        <g>
+          <g>
+            <path d="M492,236H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,236,492,236z"/>
+          </g>
+        </g>
+        <g>
+          <g>
+            <path d="M492,76H20C8.954,76,0,84.954,0,96s8.954,20,20,20h472c11.046,0,20-8.954,20-20S503.046,76,492,76z"/>
+          </g>
+        </g>
+        <g>
+          <g>
+            <path d="M492,396H20c-11.046,0-20,8.954-20,20c0,11.046,8.954,20,20,20h472c11.046,0,20-8.954,20-20
+              C512,404.954,503.046,396,492,396z"/>
+          </g>
+        </g>
+        </svg>        
+      </button>
+    </div>
+  </header>
+  <main>
+    
+    <section class="map" id="map">
+      <nav class="menu" id="menu">
+
+      </nav>
+      <div id="mapInfo" class="map-info">
+        <div id="gaz" class="map-info__gaz gaz">
+          <h2 class="gaz__title">КРУПНЕЙШИЕ ПРОИЗВОДИТЕЛИ ПРИРОДНОГО ГАЗА</h2>
+          <a href="#" class="gaz__link-graphic">
+            <svg id="gazGraphic" class="graphic gaz__graphic" viewBox="0 0 380.88 380.8">
+              <defs>
+                <style>
+                  .gaz-1{fill:#fff;}
+                  .gaz-2{fill:#ECE5EE;}
+                  .gaz-3{fill:#D9CDDD;}
+                  .gaz-4{fill:#C8B4CB;}
+                  .gaz-5{fill:#B79CB9;}
+                  .gaz-6{fill:#A685A8;}
+                  .gaz-7{fill:#976E97;}
+                  .gaz-8{fill:#885888;}
+                  .gaz-9{fill:#7A447A;}
+                  .gaz-10{fill:#6C326E;}
+                  .gaz-11{fill:#5F2264;}
+                  .gaz-12{fill:#c4c4c4;}
+                </style>
+              </defs>
+              <path id="gaz-1" class="st gaz-1" d="M190.55,190.59,4.61,230.11C-17.22,127.42,48.33,26.48,151,4.65A182.42,182.42,0,0,1,190.55.49Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-2" class="st gaz-2" d="M190.55,190.59l-178.63,65a181.77,181.77,0,0,1-7.31-25.49Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-3" class="st gaz-3" d="M190.55,190.59l-163,97.9A193.29,193.29,0,0,1,11.92,255.6Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-4" class="st gaz-4" d="M190.55,190.59,47.08,315.3A173.23,173.23,0,0,1,27.6,288.49Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-5" class="st gaz-5" d="M190.55,190.59,78.81,344.38A176.21,176.21,0,0,1,47.08,315.3Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-6" class="st gaz-6" d="M190.55,190.59,122.42,368.06a181.58,181.58,0,0,1-43.61-23.68Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-7" class="st gaz-7" d="M190.55,190.59,177.29,380.22a190.7,190.7,0,0,1-54.87-12.16Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-8" class="st gaz-8" d="M190.55,190.59l39.52,185.94a172.76,172.76,0,0,1-52.78,3.69Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-9" class="st gaz-9" d="M190.55,190.59l109,155.71a186.43,186.43,0,0,1-69.51,30.23Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-10" class="st gaz-10" d="M190.55,190.59,379.6,170.72c7.54,71.73-20.94,134.21-80,175.58Z" transform="translate(-0.16 -0.24)"/>
+              <path id="gaz-11" class="st gaz-11" d="M190.55,190.59V.49C288.5.49,369.36,73.3,379.6,170.72Z" transform="translate(-0.16 -0.24)"/>
+              <ellipse id="gaz-12" class="gaz-12" cx="189.58" cy="190.13" rx="101.99" ry="107.99"/>
+            </svg>
+          </a>
+          <div id="popupGaz">
+          </div>
+          <ul class="gaz__list">
+            <li class="gaz__item">
+              <a href="#" id="flyUSA" class="gaz__link" >
+                1. Соединенные Штаты Америки
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyRussia" class="gaz__link">
+                2. Российская Федерация
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyIran" class="gaz__link">
+                3. Иран
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyCanada" class="gaz__link">
+                4. Канада
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyQatar" class="gaz__link">
+                5. Катар
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyChina" class="gaz__link">
+                6. Китай
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyAustralia" class="gaz__link">
+                7. Австралия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyNorway" class="gaz__link">
+                8. Норвегия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flySaudi" class="gaz__link">
+                9. Саудовская Аравия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyAlgeria" class="gaz__link">
+                10. Алжир
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyWorld" class="gaz__link">
+                Остальной мир
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div id="coal" class="map-info__gaz gaz">
+          <h2 class="gaz__title">КРУПНЕЙШИЕ ПРОИЗВОДИТЕЛИ УГЛЯ</h2>
+          <a href="#" class="gaz__link-graphic">
+            <svg id="coalGraphic" class="graphic coal__graphic" viewBox="0 0 381.2 381.29">
+              <defs>
+                <style>
+                  .coal-1{fill:#fff;}
+                  .coal-2{fill:#F4E8EC;}
+                  .coal-3{fill:#E9D1D9;}
+                  .coal-4{fill:#DEBBC5;}
+                  .coal-5{fill:#D4A5B2;}
+                  .coal-6{fill:#C88FA0;}
+                  .coal-7{fill:#BD7A8D;}
+                  .coal-8{fill:#B2657C;}
+                  .coal-9{fill:#A8506C;}
+                  .coal-10{fill:#9D3C5C;}
+                  .coal-11{fill:#92274E;}
+                  .coal-12{fill: #c4c4c4}
+                </style>
+              </defs>
+              <path id="coal-1" class="st coal-1" d="M190.64,190.56l-62-179.94a189.07,189.07,0,0,1,62-10.37Z"/>
+              <path id="coal-2" class="st coal-2" d="M190.64,190.56,113.23,16.7c5.86-2.6,9.39-4,15.45-6.08Z"/>
+              <path id="coal-3" class="st coal-3" d="M190.64,190.56,95.48,25.75a193.51,193.51,0,0,1,17.75-9Z"/>
+              <path id="coal-4" class="st coal-4" d="M190.64,190.56,73.47,40.59a182.37,182.37,0,0,1,22-14.84Z"/>
+              <path id="coal-5" class="st coal-5" d="M190.64,190.56,44.85,68.23A183.87,183.87,0,0,1,73.47,40.59Z"/>
+              <path id="coal-6" class="st coal-6" d="M190.64,190.56l-179.95-62A183.74,183.74,0,0,1,44.85,68.23Z"/>
+              <path id="coal-7" class="st coal-7" d="M190.64,190.56l-190,10C-.81,174,2,153.75,10.69,128.6Z"/>
+              <path id="coal-8" class="st coal-8" d="M190.64,190.56,24.19,282.83A183.12,183.12,0,0,1,.59,200.52Z"/>
+              <path id="coal-9" class="st coal-9" d="M190.64,190.56,98.37,357c-32.82-18.19-56-41.36-74.18-74.18Z"/>
+              <path id="coal-10" class="st coal-10" d="M190.64,190.56l23.19,188.9c-41.62,5.11-78.78-2.11-115.46-22.45Z"/>
+              <path id="coal-11" class="st coal-11" d="M190.64,190.56V.25C295.74.25,381,85.46,381,190.56c0,97-70.83,177.07-167.12,188.9Z"/>
+              <ellipse class="coal-12" cx="189.74" cy="190.38" rx="101.99" ry="107.99"/>
+            </svg>
+          </a>
+          <div id="popupCoal">
+          </div>
+          <ul class="gaz__list">
+            <li class="gaz__item">
+              <a href="#" id="flyChinaCoal" class="gaz__link" >
+                1. Китайская Народная Республика
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyIndiaCoal" class="gaz__link">
+                2. Индия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyUSACoal" class="gaz__link">
+                3. Соединенные Штаты Америки
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyIndonezyCoal" class="gaz__link">
+                4. Индонезия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyAustraliaCoal" class="gaz__link">
+                5. Австралия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyRussiaCoal" class="gaz__link">
+                6. Российская Федерация
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flySouthAfricaCoal" class="gaz__link">
+                7. Южно-Африканская Республика
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyGermanyCoal" class="gaz__link">
+                8. Германия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyPolandCoal" class="gaz__link">
+                9. Польша
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyKazastanCoal" class="gaz__link">
+                10. Казахстан
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyWorldCoal" class="gaz__link">
+                Остальной мир
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+        <div id="oil" class="map-info__gaz gaz">
+          <h2 class="gaz__title">КРУПНЕЙШИЕ ПРОИЗВОДИТЕЛИ НЕФТИ</h2>
+          <a href="#" class="gaz__link-graphic">
+            <svg id="oilGraphic" class="graphic oil__graphic" viewBox="0 0 381.26 380.71">
+              <defs>
+                <style>
+                  .oil-1{fill:#fff;}
+                  .oil-2{fill:#E8E6F4;}
+                  .oil-3{fill:#D2CDE8;}
+                  .oil-4{fill:#BDB5DA;}
+                  .oil-5{fill:#A69DCD;}
+                  .oil-6{fill:#9185BE;}
+                  .oil-7{fill:#7C6EB0;}
+                  .oil-8{fill:#6859A3;}
+                  .oil-9{fill:#554596;}
+                  .oil-10{fill:#43358B;}
+                  .oil-11{fill:#312783;}
+                  .oil-12{fill:#c4c4c4;}
+                </style>
+              </defs>
+              <path id="oil-1" class="st oil-1" d="M190.36,190.37l-184.45,46C-19.49,134.49,42.5,31.32,144.37,5.92a192.14,192.14,0,0,1,46-5.65Z"/>
+              <path id="oil-2" class="st oil-2" d="M190.36,190.37,14.11,261.58a174.4,174.4,0,0,1-8.2-25.23Z"/>
+              <path id="oil-3" class="st oil-3" d="M190.36,190.37,30.93,293.9a176.83,176.83,0,0,1-16.82-32.32Z"/>
+              <path id="oil-4" class="st oil-4" d="M190.36,190.37l-132,136.74A184,184,0,0,1,30.93,293.9Z"/>
+              <path id="oil-5" class="st oil-5" d="M190.36,190.37,92.45,353.31a176.53,176.53,0,0,1-34.14-26.2Z"/>
+              <path id="oil-6" class="st oil-6" d="M190.36,190.37,138,373.1a185.8,185.8,0,0,1-45.51-19.79Z"/>
+              <path id="oil-7" class="st oil-7" d="M190.36,190.37l6.63,190a178,178,0,0,1-59-7.24Z"/>
+              <path id="oil-8" class="st oil-8" d="M190.36,190.37,267.68,364A182,182,0,0,1,197,380.34Z"/>
+              <path id="oil-9" class="st oil-9" d="M190.36,190.37,370.1,252.25C352.29,304,317.65,341.78,267.68,364Z"/>
+              <path id="oil-10" class="st oil-10" d="M190.36,190.37,351.57,89.63c31.38,50.22,37.8,106.64,18.53,162.62Z"/>
+              <path id="oil-11" class="st oil-11" d="M190.36,190.37V.27c68.24,0,125.05,31.49,161.21,89.36Z"/>
+              <ellipse class="oil-12" cx="189.77" cy="190.36" rx="101.99" ry="107.99"/>
+            </svg>
+          </a>
+          <div id="popupOil">
+          </div>
+          <ul class="gaz__list">
+            <li class="gaz__item">
+              <a href="#" id="flyUSAOil" class="gaz__link" >
+                1. Соединенные Штаты Америки
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyRussiaOil" class="gaz__link">
+                2. Российская Федерация
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flySaudiOil" class="gaz__link">
+                3. Саудовская Аравия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyIrakOil" class="gaz__link">
+                4. Ирак
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyChinaOil" class="gaz__link">
+                5. Китай
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyEmirateOil" class="gaz__link">
+                6. Объединённые Арабские Эмираты
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyBrazilOil" class="gaz__link">
+                7. Бразилия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyKuwaitOil" class="gaz__link">
+                8. Кувейт
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyIranOil" class="gaz__link">
+                9. Иран
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyNigeriaOil" class="gaz__link">
+                10. Нигерия
+              </a>
+            </li>
+            <li class="gaz__item">
+              <a href="#" id="flyWorldOil" class="gaz__link">
+                Остальной мир
+              </a>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="quakeInfo">
+        <div>
+          <strong>Страна:</strong> 
+          <span id="mag"></span>
+        </div>
+        <div>
+          <strong>Объем добычи:</strong> 
+          <span id="loc"></span>
+        </div>
+      </div>
+
+      <div id="legendaGaz" class="legenda legenda__gaz">
+        <h2 class="legenda__title">Объём добычи (млрд м<sup>3</sup> в год)</h2>
+        <ul class="legenda__list">
+          <li class="legenda__text">
+            Крупнейшие производители
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__more"></span>
+            <a href="#">более 500</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__500"></span>
+            <a href="#">от 200 - до 500</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__200"></span>
+            <a href="#">от 100 - до 200</a>
+          </li>
+          <li class="legenda__text">
+            Прочие
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__100"></span>
+            <a href="#">от 50 - до 100</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__50"></span>
+            <a href="#">от 10 - до 50</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__10"></span>
+            <a href="#">менее 10</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__none"></span>
+            <a href="#">нет добычи</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="legendaCoal" class="legenda legenda__coal">
+        <h2 class="legenda__title">Объём добычи (млн тонн в год)</h2>
+        <ul class="legenda__list">
+          <li class="legenda__text">
+              Крупнейшие производители
+            </li>
+          <li class="legenda__item">  
+            <span class="legenda__rectangle rectangle__coal-more"></span>
+            <a href="#">более 1 000</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__coal-1000"></span>
+            <a href="#">от 500 - до 1 000</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__coal-500"></span>
+            <a href="#">от 100 - до 500</a>
+          </li>
+          <li class="legenda__text">
+            Прочие
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__coal-100"></span>
+            <a href="#">от 10 - до 100</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__coal-10"></span>
+            <a href="#">менее 10</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__none"></span>
+            <a href="#">нет добычи</a>
+          </li>
+        </ul>
+      </div>
+
+      <div id="legendaOil" class="legenda legenda__oil">
+        <h2 class="legenda__title">Объём добычи (тыс. бар/сутки)</h2>
+        <ul class="legenda__list">
+          <li class="legenda__text">
+            Крупнейшие производители
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__oil-more"></span>
+            <a href="#">более 10 000</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__oil-10000"></span>
+            <a href="#">от 5 000 - до 10 000</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__oil-5000"></span>
+            <a href="#">от 1 000 - до 5 000</a>
+          </li>
+          <li class="legenda__text">
+            Прочие
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__oil-1000"></span>
+            <a href="#">от 100 - до 1 000</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__oil-100"></span>
+            <a href="#">менее 100</a>
+          </li>
+          <li class="legenda__item">
+            <span class="legenda__rectangle rectangle__none"></span>
+            <a href="#">нет добычи</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+    <script>
+    </script>
+  </main>
+
+  
+</body>
+</html>

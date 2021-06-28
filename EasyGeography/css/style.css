@@ -1,0 +1,333 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: 'Roboto', sans-serif;
+}
+
+h2 {
+  margin: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Roboto', sans-serif;
+  color: #404040;
+}
+
+p {
+  margin: 0;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+/* Header */
+.header {
+  background: #ADACAC;
+}
+
+.container__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 50px;
+}
+
+.header__img {
+  height: 35px;
+}
+
+.header__menu {
+  border: none;
+  background: transparent;
+}
+
+.header__burger {
+  width: 25px;
+  height: 35px;
+}
+
+/* Map */
+.map {
+  width: 100%;
+  height: calc(100vh - 65px);
+}
+
+#menu {
+  background: #fff;
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  border-radius: 3px;
+  width: 220px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+}
+   
+#menu a {
+
+  display: block;
+  margin: 0;
+  padding: 0;
+  padding: 10px;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  text-align: center;
+}
+   
+#menu a:last-child {
+  border: none;
+}
+   
+#menu a:hover {
+  background-color: #f8f8f8;
+  color: #404040;
+}
+   
+#menu a.active {
+  background-color: #c4c4c4;
+  color: #000;
+}
+   
+#menu a.active:hover {
+  background: #3074a4;
+}
+
+/* Панель навигации */
+.mapboxgl-ctrl-top-right {
+  top: calc(100% - 450px) !important;
+}
+
+/* Информационный блок */
+.map-info {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  left: 10px;
+  
+}
+
+.gaz {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 280px;
+  padding: 15px;
+  border-radius: 3px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  background: #c4c4c4;
+}
+
+#coal {
+  display: none;
+}
+
+#oil {
+  display: none;
+}
+
+.gaz__title {
+  margin-bottom: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+.graphic {
+  width: 150px;
+}
+
+.gaz__list {
+  margin-top: 22px;
+}
+
+.gaz__item {
+  display: flex;
+  align-items: center;
+}
+
+.gaz__item:not(last-child) {
+  margin-bottom: 3px;
+}
+
+.gaz__link {
+  color: #404040;
+}
+
+.gaz__link:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.gaz__rectangle {
+  display: inline-block;
+  margin-right: 5px;
+  width: 30px;
+  height: 15px;
+  border: 1px solid #000;
+  opacity: 0.7;
+}
+
+#popupGaz {
+  display: none;
+  position: absolute;
+  top: 240px;
+  left: center;
+}
+
+#popupCoal, #popupOil {
+  display: none;
+  position: absolute;
+  top: 220px;
+  left: center;
+}
+
+/* График Газ */
+.st {
+  opacity: 0.8;
+}
+
+.st:hover {
+  opacity: 1;
+}
+ 
+ /* Информация о добыче */ 
+.quakeInfo {
+  position: absolute;
+  z-index: 1;
+  bottom: 70px;
+  margin-top: 5px;
+  margin-left: 10px;
+  padding: 10px;
+  width: 280px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  font-size: 14px;
+  color: #404040;
+  background-color: #fff;
+  border-radius: 3px;
+}
+
+/* Легенда */
+.legenda {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  z-index: 1;
+  bottom: 30px;
+  right: 10px;
+  padding: 10px;
+  min-width: 230px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
+  background: #fff;
+}
+
+.legenda__gaz{
+  display: flex;
+}
+
+.legenda__title {
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+.legenda__list {
+  display: flex;
+  flex-direction: column;
+}
+
+.legenda__item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2px;
+}
+
+.legenda__text {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.legenda__rectangle {
+  display: inline-block;
+  width: 40px;
+  margin-right: 10px;
+  height: 15px;
+  border: 1px solid #000;
+  opacity: 0.65;
+}
+
+/* Оформление стилей в легенде добычи газа */
+.rectangle__more {
+  background: #073D69;
+}
+
+.rectangle__500 {
+  background: #326187;
+}
+
+.rectangle__200 {
+  background: #5D85A4;
+}
+
+.rectangle__100 {
+  background: #89AAC2;
+}
+
+.rectangle__50 {
+  background: #B4CEDF;
+}
+
+.rectangle__10 {
+  background: #DFF2FD;
+}
+
+/* Оформление стилей в легенде добычи нефти */
+.rectangle__oil-more {
+  background: #46205C;
+}
+
+.rectangle__oil-10000 {
+  background: #745482;
+}
+
+.rectangle__oil-5000 {
+  background: #A287A9;
+}
+
+.rectangle__oil-1000 {
+  background: #CFBBCF;
+}
+
+.rectangle__oil-100 {
+  background: #FDEEF5;
+}
+
+/* Оформление стилей в легенде добычи угля */
+.rectangle__coal-more {
+  background: #470600;
+}
+
+.rectangle__coal-1000 {
+  background: #703E35;
+}
+
+.rectangle__coal-500 {
+  background: #99776A;
+}
+
+.rectangle__coal-100 {
+  background: #C1AF9E;
+}
+
+.rectangle__coal-10 {
+  background: #EAE7D3;
+}
