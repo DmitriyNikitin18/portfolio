@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Карта комплексной оценки городской среды МО Орехово-Борисово Северное</title>
+  <!-- Подключение Mapboxa -->
+  <link href="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v2.3.0/mapbox-gl.js"></script>
+
+  <!-- Шрифт -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/normalize .css">
+
+  <script defer src="js/main.js"></script>
+</head>
+<body>
+  <header class="header">
+    <h1 class="header__title">Комплексная оценка городской среды МО Орехово-Борисово Северное</h1>
+  </header>
+  <main class="section__container">
+    <section class="menu">
+      <nav class="menu__nav">
+        <h2 class="menu__header">Условные обозначения</h2>
+        <ul class="menu__list">
+          <li class="menu__item"> 
+            <input id="obr" class="menu__checkbox" type="checkbox">
+            <label for="obr">Образование</label>
+            <ul id="obrList" class="legenda__list">
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/school.svg" alt="Иконка школы">
+                <span>Школы</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/kindergarten.svg" alt="Иконка детского сада">
+                <span>Детские сады</span>
+              </li>
+              <li class="legenda__item legenda__item-zona">
+                <input id="obrZona" class="legenda__checkbox" type="checkbox">
+                <label for="obrZona">Количество мест в школах на 1000 чел.</label>
+                <img class="legend__zona" src="img/obr_zone.svg" alt="">
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu__item"> 
+            <input id="medicine" class="menu__checkbox" type="checkbox">
+            <label for="medicine">Медицина</label>
+            <ul class="legenda__list">
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/pol.svg" alt="Иконка поликлиники взрослые">
+                <span>Поликлиники взрослые</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/pol_child.svg" alt="Иконка поликлиники детские">
+                <span>Поликлиники детские</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/stom_child.svg" alt="Иконка детской стоматологии">
+                <span>Детские стоматологии</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/milk_kitchen.svg" alt="Иконка молочная кухня">
+                <span>Молочная кухня</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/pharmacy.svg" alt="Иконка аптек">
+                <span>Аптеки</span>
+              </li>
+              <li class="legenda__item legenda__item-zona">
+                <input id="phZone" class="legenda__checkbox" type="checkbox">
+                <label for="phZone">Количество аптек на 100 тыс. м<sup>2</sup></label>
+                <img class="legend__zona" src="img/pharmacy_zone.svg" alt="">
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu__item"> 
+            <input id="transport" class="menu__checkbox" type="checkbox">
+            <label for="transport">Транспорт</label>
+            <ul class="legenda__list">
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/metro.svg" alt="Иконка метро">
+                <span>Метро</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/land_stop.svg" alt="Иконка остановки">
+                <span>Остановки наземного транспорта</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/bycicle_parking.svg" alt="Иконка велопарковки">
+                <span>Велопарковки</span>
+              </li>
+              
+            </ul>
+          </li>
+
+          <li class="menu__item"> 
+            <input id="trash" class="menu__checkbox" type="checkbox">
+            <label for="trash">ЖКХ</label>
+            <ul id="" class="legenda__list">
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/trash.svg" alt="Иконка бытовой мусорв">
+                <span>Места для сбора бытового мусора</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/recycle.svg" alt="Иконка остановки">
+                <span>Места для сбора вторсырья</span>
+              </li>
+              <li class="legenda__item legenda__item-zona">
+                <input id="trashZone" class="legenda__checkbox" type="checkbox">
+                <label for="trashZone">Количество мест для сбора мусора на 100 тыс. м<sup>2</sup></label>
+                <img class="legend__zona" src="img/trash_zone.svg" alt="">
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu__item"> 
+            <input id="dosug" class="menu__checkbox" type="checkbox">
+            <label for="dosug">Досуг</label>
+            <ul class="legenda__list">
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/family.svg" alt="Иконка семейный досуг">
+                <span>Места для семейного досуга</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/cinema.svg" alt="Иконка кинотеатры">
+                <span>Кинотеатры</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/cafe.svg" alt="Иконка кафе">
+                <span>Кафе</span>
+              </li>
+              <li class="legenda__item legenda__item-zona">
+                <input id="dosugZone" class="legenda__checkbox" type="checkbox">
+                <label for="dosugZone">Количество объектов досуга на 1 000 человек</label>
+                <img class="legend__zona" src="img/dosug_zone.svg" alt="">
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu__item"> 
+            <input id="sport" class="menu__checkbox" type="checkbox">
+            <label for="sport">Спорт</label>
+            <ul class="legenda__list">
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/sport_zal2.svg" alt="Иконка спортивного зала">
+                <span>Спортивные залы</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/sport_zone.svg" alt="Иконка спортивной площадки">
+                <span>Спортивная площадка</span>
+              </li>
+              <li class="legenda__item legenda__item-zona">
+                <input id="sportZone" class="legenda__checkbox" type="checkbox">
+                <label for="sportZone">Количество спортивных объектов на 100 тыс. м<sup>2</sup></label>
+                <img class="legend__zona" src="img/sport_zone_p.svg" alt="">
+              </li>
+            </ul>
+          </li>
+
+          <li class="menu__item"> 
+            <input id="trade" class="menu__checkbox" type="checkbox">
+            <label for="trade">Магазины</label>
+            <ul class="legenda__list">
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/supermarket.svg" alt="Иконка супермаркета">
+                <span>Супермаркеты</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/alcohol.svg" alt="Иконка магазина алкоголя">
+                <span>Алкомаркеты</span>
+              </li>
+              <li class="legenda__item">
+                <img class="legend__icon" src="img/chemist.svg" alt="Иконка бытовых магазинов">
+                <span>Бытовые магазины</span>
+              </li>
+              <li class="legenda__item legenda__item-zona">
+                <input id="tradeZone" class="legenda__checkbox" type="checkbox">
+                <label for="tradeZone">Количество количество магазинов на 100 тыс. м<sup>2</sup></label>
+                <img class="legend__zona" src="img/trade_zone.svg" alt="">
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </section>
+    <section id="map" class="map">
+
+    </section>
+
+  </main>
+</body>
+</html>
